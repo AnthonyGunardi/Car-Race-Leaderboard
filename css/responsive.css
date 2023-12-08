@@ -1,0 +1,77 @@
+/*--------------------------------------------------------------------- 
+File Name: responsive.css 
+---------------------------------------------------------------------*/
+
+@media (min-width: 1200px) and (max-width: 1320px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .club_btn .read_more {
+        max-width: 296px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .club figure img {
+        height: 354px;
+    }
+    .club_btn .read_more {
+        max-width: 220px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    header {
+        position: inherit;
+        background: #fff;
+    }
+    .club_btn .read_more {
+        max-width: 174px;
+        height: 64px;
+        line-height: 64px;
+        margin: 0 4px;
+    }
+}
+
+@media (max-width: 575px) {
+    header {
+        position: inherit;
+        background: #fff;
+    }
+    .d_none {
+        display: none !important;
+    }
+    .logo {
+        display: block;
+        width: 144px;
+        float: left;
+    }
+    .titlepage h2 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .club h1 {
+        font-size: 37px;
+    }
+    .club figure img {
+        height: 276px;
+    }
+    .club_btn img {
+        width: 90px;
+    }
+    .club_btn1 img {
+        width: 90px;
+    }
+    .club_btn .read_more {
+        margin-top: 5px;
+    }
+    #point01,
+    #point02,
+    #point03,
+    #point04,
+    #point05,
+    #point06,
+    #point07,
+    #point08 {
+        font-size: 15px;
+    }
+}
