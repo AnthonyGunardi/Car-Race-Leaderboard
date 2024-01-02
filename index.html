@@ -145,10 +145,7 @@
    </div>
 
    <div class="titleteam text_align_center">
-      <button class="button-33" role="button" onclick="moveCar01()">Cek Kelompok 1</button>
-      <button class="button-33" role="button" onclick="moveCar02()">Cek Kelompok 2</button>
-      <button class="button-33" role="button" onclick="moveCar03()">Cek Kelompok 3</button>
-      <button class="button-33" role="button" onclick="moveCar04()">Cek Kelompok 4</button>
+      <button class="button-33" role="button" onclick="moveCars()">REFRESH POINTS</button>
    </div>
    <!-- end our_club -->
 
@@ -160,48 +157,15 @@
    <script src="js/custom.js"></script>
    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script>
-      async function moveCar01() {
+      async function moveCars() {
          try {
-            let team01_data = await axios.get('https://anthonygunardi.com/api-poin-peserta/v1/teams/team/1')
-            let points_team01 = team01_data.data.total_poin
-            document.getElementById("car01").style.marginLeft = `${points_team01}px`;
-            document.getElementById("point01").innerHTML = `${points_team01} PTS`;
-         }
-         catch (err) {
-            console.log(err)
-         }
-      }
-
-      async function moveCar02() {
-         try {
-            let team02_data = await axios.get('https://anthonygunardi.com/api-poin-peserta/v1/teams/team/2')
-            let points_team02 = team02_data.data.total_poin
-            document.getElementById("car02").style.marginLeft = `${points_team02}px`;
-            document.getElementById("point02").innerHTML = `${points_team02} PTS`;
-         }
-         catch (err) {
-            console.log(err)
-         }
-      }
-
-      async function moveCar03() {
-         try {
-            let team03_data = await axios.get('https://anthonygunardi.com/api-poin-peserta/v1/teams/team/3')
-            let points_team03 = team03_data.data.total_poin
-            document.getElementById("car03").style.marginLeft = `${points_team03}px`;
-            document.getElementById("point03").innerHTML = `${points_team03} PTS`;
-         }
-         catch (err) {
-            console.log(err)
-         }
-      }
-
-      async function moveCar04() {
-         try {
-            let team04_data = await axios.get('https://anthonygunardi.com/api-poin-peserta/v1/teams/team/4')
-            let points_team04 = team04_data.data.total_poin
-            document.getElementById("car04").style.marginLeft = `${points_team04}px`;
-            document.getElementById("point04").innerHTML = `${points_team04} PTS`;
+            let teams = await axios.get('https://anthonygunardi.com/api-poin-peserta/v1/teams/1')
+            if (teams.data) {
+               for (let i=0; i < teams.data.length; i++) {
+                  document.getElementById(`car0${i+1}`).style.marginLeft = `${teams.data[i].total_poin}px`;
+                  document.getElementById(`point0${i+1}`).innerHTML = `${teams.data[i].total_poin} PTS`;
+               }
+            }
          }
          catch (err) {
             console.log(err)
